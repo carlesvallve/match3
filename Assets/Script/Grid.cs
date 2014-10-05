@@ -6,23 +6,19 @@ using System.Linq;
 public class Grid : MonoBehaviour {
 
 	// controls
-	public TouchControls touchControls;
-	public TouchLayer touchLayer;
+	private TouchControls touchControls;
+	private TouchLayer touchLayer;
+	private Vector2 swipeDirection;
 
 	// editable from the unity editor
-	public int rows = 9;
-	public int cols = 7;
-	public int tileSize = 42;
+	private int rows = 9;
+	private int cols = 7;
+	private int tileSize = 42;
 
-	// grid data
+	// tile data
 	public Object[] tileTypes;
-	public Tile[,] tiles; // tiles.GetLength(0), tiles.GetLength(1)
-
-
-	List<Tile> matches;
-
-
-	private Vector2 swipeDirection;
+	private Tile[,] tiles; // tiles.GetLength(0), tiles.GetLength(1)
+	private List<Tile> matches;
 
 
 	// *****************************************************
@@ -47,9 +43,6 @@ public class Grid : MonoBehaviour {
 				tiles[x, y] = createTile(Random.Range(0, tileTypes.Length), x, y);
 			}
 		}
-
-		// resolve initial tile matches
-		resolveInitialMatches();
 	}
 
 
@@ -71,7 +64,7 @@ public class Grid : MonoBehaviour {
 		if (!tile1 || !tile2) yield break;
 
 		// play swapping sound
-		Audio.play("audio/fx/hit-arrow", 0.8f, Random.Range(1.5f, 2.5f), false);
+		Audio.play("audio/fx2/Swoosh3", 0.3f, Random.Range(2.0f, 3.0f), false);
 
 		// swap tiles
 		moveTile(tile1, tile2.transform.localPosition);
@@ -81,7 +74,7 @@ public class Grid : MonoBehaviour {
 		yield return new WaitForSeconds(0.35f);
 
 		// resolve tile matches
-		resolveMatches();
+		StartCoroutine(resolveMatches());
 	}
 
 
@@ -98,29 +91,7 @@ public class Grid : MonoBehaviour {
 	// Tile Matches
 	// *****************************************************
 
-	private void resolveInitialMatches () {
-		/*for (int y = 0; y < rows; y++) {
-			for (int x = 0; x < cols; x++){
-				Tile tile = tiles[x, y];
-
-				int c = 0;
-				List<Tile> matches = getAllMatches();
-
-				while(matches.Count > 0) {
-					tile.setType(Random.Range(0, tileTypes.Length));
-					matches = getAllMatches();
-					c++;
-					if (c == 5000) {
-						print ("maximum iterations exceeded!");
-						return;
-					}
-				}
-			}
-		}*/
-	}
-
-
-	private void resolveMatches () {
+	private IEnumerator resolveMatches () {
 		// disable user interaction
 		touchControls.enabled = false;
 
@@ -130,6 +101,9 @@ public class Grid : MonoBehaviour {
 		if (matches.Count > 0) {
 			// if we found matches, resolve them
 			destroyMatches(matches);
+
+			yield return new WaitForSeconds(0.2f);
+
 			spawnMatches(matches);
 		} else {
 			// if no more matches, re-enable user interaction
@@ -220,15 +194,13 @@ public class Grid : MonoBehaviour {
 
 	private void destroyMatches(List<Tile> matches) {
 
-		// play moving sound
-		Audio.play("audio/fx/magic-water", 0.2f, Random.Range(1.5f, 3.0f), false);
+		//Audio.play("audio/fx/hit-stub", 0.8f, Random.Range(0.5f, 1.5f), false);
+		Audio.play("audio/fx2/Punch", 0.8f, Random.Range(0.5f, 1.5f), false);
 
 		// destroy matches
 		for (int i = 0; i < matches.Count; i++) {
 			Tile tile = matches[i];
-			tile.alive = false;
-			// set a new trandom type
-			tile.setType(Random.Range(0, tileTypes.Length));
+			tile.explode();
 		}
 	}
 
@@ -270,7 +242,7 @@ public class Grid : MonoBehaviour {
 
 				if (!tile.alive) {
 					int xx = cols + c;
-					tile.transform.localPosition = new Vector2(xx, -tile.y);
+					tile.spawn(new Vector2(xx, -tile.y));
 					c++;
 					spawns.Add(tile);
 				} else {
@@ -293,7 +265,9 @@ public class Grid : MonoBehaviour {
 
 				if (!tile.alive) {
 					int xx = - c - 1;
-					tile.transform.localPosition = new Vector2(xx, -tile.y);
+					tile.spawn(new Vector2(xx, -tile.y));
+					//tile.transform.localPosition = new Vector2(xx, -tile.y);
+					//tile.setType(Random.Range(0, tileTypes.Length));
 					c++;
 					spawns.Add(tile);
 				} else {
@@ -317,7 +291,9 @@ public class Grid : MonoBehaviour {
 
 				if (!tile.alive) {
 					int yy = rows + c;
-					tile.transform.localPosition = new Vector2(tile.x, -yy);
+					tile.spawn(new Vector2(tile.x, -yy));
+					//tile.transform.localPosition = new Vector2(tile.x, -yy);
+					//tile.setType(Random.Range(0, tileTypes.Length));
 					c++;
 					spawns.Add(tile);
 				} else {
@@ -341,7 +317,9 @@ public class Grid : MonoBehaviour {
 
 				if (!tile.alive) {
 					int yy = - c - 1;
-					tile.transform.localPosition = new Vector2(tile.x, -yy);
+					tile.spawn(new Vector2(tile.x, -yy));
+					//tile.transform.localPosition = new Vector2(tile.x, -yy);
+					//tile.setType(Random.Range(0, tileTypes.Length));
 					c++;
 					spawns.Add(tile);
 				} else {
@@ -398,6 +376,9 @@ public class Grid : MonoBehaviour {
 		// get empty spaces for each tile to spawn
 		getSpawnSpaces(spawns);
 
+		// play moving sound
+		//Audio.play("audio/fx/magic-water", 0.2f, Random.Range(1.5f, 3.0f), false);
+
 		// move tiles
 		for (int i = 0; i < spawns.Count; i++) {
 			Tile tile = spawns[i];
@@ -427,7 +408,7 @@ public class Grid : MonoBehaviour {
 		yield return new WaitForSeconds(0.35f);
 
 		// again, resolve tile matches
-		resolveMatches();
+		StartCoroutine(resolveMatches());
 	}
 
 

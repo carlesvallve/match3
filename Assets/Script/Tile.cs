@@ -7,17 +7,17 @@ public class Tile : MonoBehaviour {
 	public SpriteRenderer image;
 	public TextMesh label;
 
+	private float speed = 16.0f;
+
 	public Vector2 finalPos;
 
-	private float speed = 16.0f;
 	public bool moving = false;
+	public bool exploding = false;
+	public bool alive = true;
 
 	public int type;
 	public int x;
 	public int y;
-
-	public bool alive = true;
-
 	public int spaces = 0;
 
 
@@ -35,7 +35,7 @@ public class Tile : MonoBehaviour {
 
 		// sprite
 		image = GetComponent<SpriteRenderer>();
-		image.sprite = (Sprite)grid.tileTypes[type]; // Resources.Load("Gems/0", typeof(Sprite)) as Sprite;
+		image.sprite = (Sprite)grid.tileTypes[type];
 		image.sortingOrder = y + x;
 
 		// label
@@ -55,12 +55,26 @@ public class Tile : MonoBehaviour {
 	}
 
 
+	public void explode () {
+		this.alive = false;
+		this.exploding = true;
+	}
+
+
+	public void spawn(Vector2 pos) {
+		transform.localPosition = pos;
+		setType(Random.Range(0, grid.tileTypes.Length));
+		transform.localScale = new Vector3(1, 1, 1);
+	}
+
+
 	void Update () {
+		float step = speed * Time.deltaTime;
+
 		// update position
 		if (alive && moving) {
-			float step = speed * Time.deltaTime;
 			transform.localPosition = Vector3.MoveTowards(transform.localPosition, finalPos, step);
-			//transform.position = Vector3.Lerp(transform.position, finalPos, step);
+			//transform.localPosition = Vector3.Lerp(transform.localPosition, finalPos, step * 2);
 
 			if (transform.localPosition.x == finalPos.x && transform.localPosition.y == finalPos.y) {
 				moving = false;
@@ -68,9 +82,18 @@ public class Tile : MonoBehaviour {
 			}
 		}
 
+		if (exploding) {
+			transform.localScale = Vector3.MoveTowards(transform.localScale, new Vector3(0, 0, 0), step);
+			//transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), step * 2);
+
+			if (transform.localScale == Vector3.zero) {
+				exploding = false;
+			}
+		}
+
 		// update label
 		label.text = "" + type;
-		//label.text = "" + transform.position.x + "," + transform.position.y + "\n" + x + "," + y;
-		//label.text = "" + spaces; //type + " (" + x + "," + y + ")";
+		//label.text = "" + spaces;
+		//label.text = "" + x + "," + y;
 	}
 }
