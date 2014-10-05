@@ -29,8 +29,8 @@ public class Tile : MonoBehaviour {
 		this.y = y;
 
 		// gameObject
-		this.baseType = "tile";
-		this.name = "Tile_" + x + "_" + y;
+		baseType = "Tile";
+		name = baseType + x + "_" + y;
 		transform.parent = grid.transform;
 		transform.localPosition = new Vector2(x, -y);
 

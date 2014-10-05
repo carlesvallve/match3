@@ -7,10 +7,8 @@ public class Player : Tile {
 	public override void init (Grid grid, int type, int x, int y) {
 		base.init(grid, type, x, y);
 
-		this.name = "Player_" + x + "_" + y;
-		this.baseType = "player";
-
-		print(name + " " + baseType);
+		baseType = "Player";
+		gameObject.name = "Player_" + x + "_" + y;
 	}
 
 

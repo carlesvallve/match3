@@ -51,7 +51,7 @@ public class Grid : MonoBehaviour {
 		}
 
 		// insert player
-		player = createPlayer(Random.Range(0, monsterTypes.Length), 0, 0);
+		player = createPlayer(Random.Range(0, monsterTypes.Length), Random.Range(0, cols - 1), Random.Range(0, rows - 1));
 	}
 
 
@@ -59,6 +59,7 @@ public class Grid : MonoBehaviour {
 		GameObject obj = (GameObject)Instantiate(Resources.Load("Tiles/Prefabs/Tile"), Vector3.zero, Quaternion.identity);
 		Tile tile = obj.GetComponent<Tile>();
 		tile.init(this, type, x, y);
+		setTileAtCoords(tile, new Vector2(x, y));
 
 		return tile;
 	}
@@ -70,10 +71,7 @@ public class Grid : MonoBehaviour {
 		GameObject obj = (GameObject)Instantiate(Resources.Load("Tiles/Prefabs/Player"), Vector3.zero, Quaternion.identity);
 		Player player = obj.GetComponent<Player>();
 		player.init(this, type, x, y);
-
-
-
-		setTileAtCoords(player, new Vector2(player.x, player.y));
+		setTileAtCoords(player, new Vector2(x, y));
 
 		return player;
 	}
@@ -103,7 +101,7 @@ public class Grid : MonoBehaviour {
 
 
 	private void moveTile(Tile tile, Vector2 pos) {
-		setTileAtCoords(tile, pos);
+		setTileAtPos(tile, pos);
 		tile.finalPos = pos;
 		tile.alive = true;
 		tile.moving = true;
@@ -229,15 +227,6 @@ public class Grid : MonoBehaviour {
 	}
 
 
-	/*private void paintTiles(List<Tile> tilesToPaint, Color color) {
-		// destroy matches
-		for (int i = 0; i < tilesToPaint.Count; i++) {
-			Tile tile = tilesToPaint[i];
-			tile.image.color = tile.alive ? Color.blue : Color.red; //color;
-		}
-	}*/
-
-
 	// *****************************************************
 	// Spawn Tiles
 	// *****************************************************
@@ -290,8 +279,6 @@ public class Grid : MonoBehaviour {
 				if (!tile.alive) {
 					int xx = - c - 1;
 					tile.spawn(new Vector2(xx, -tile.y));
-					//tile.transform.localPosition = new Vector2(xx, -tile.y);
-					//tile.setType(Random.Range(0, tileTypes.Length));
 					c++;
 					spawns.Add(tile);
 				} else {
@@ -316,8 +303,6 @@ public class Grid : MonoBehaviour {
 				if (!tile.alive) {
 					int yy = rows + c;
 					tile.spawn(new Vector2(tile.x, -yy));
-					//tile.transform.localPosition = new Vector2(tile.x, -yy);
-					//tile.setType(Random.Range(0, tileTypes.Length));
 					c++;
 					spawns.Add(tile);
 				} else {
@@ -342,8 +327,6 @@ public class Grid : MonoBehaviour {
 				if (!tile.alive) {
 					int yy = - c - 1;
 					tile.spawn(new Vector2(tile.x, -yy));
-					//tile.transform.localPosition = new Vector2(tile.x, -yy);
-					//tile.setType(Random.Range(0, tileTypes.Length));
 					c++;
 					spawns.Add(tile);
 				} else {
@@ -399,9 +382,6 @@ public class Grid : MonoBehaviour {
 	private IEnumerator moveSpawns (List<Tile> spawns) {
 		// get empty spaces for each tile to spawn
 		getSpawnSpaces(spawns);
-
-		// play moving sound
-		//Audio.play("audio/fx/magic-water", 0.2f, Random.Range(1.5f, 3.0f), false);
 
 		// move tiles
 		for (int i = 0; i < spawns.Count; i++) {
@@ -480,11 +460,17 @@ public class Grid : MonoBehaviour {
 		return tiles[(int)coords.x, (int)coords.y];
 	}
 
+	private void setTileAtPos(Tile tile, Vector2 pos) {
+		tile.x = (int)pos.x;
+		tile.y = (int)-pos.y;
+		tile.name = tile.baseType + "_" + tile.x + "_" + tile.y;
+		tiles[tile.x, tile.y] = tile;
+	}
 
 	private void setTileAtCoords(Tile tile, Vector2 coords) {
 		tile.x = (int)coords.x;
-		tile.y = (int)-coords.y;
-		tile.name = "Tile_" + tile.x + "_" + tile.y;
+		tile.y = (int)coords.y;
+		tile.name = tile.baseType + "_" + tile.x + "_" + tile.y;
 		tiles[tile.x, tile.y] = tile;
 	}
 
@@ -555,3 +541,4 @@ public class Grid : MonoBehaviour {
 		StartCoroutine(swapTiles(tile1, tile2));
 	}
 }
+
