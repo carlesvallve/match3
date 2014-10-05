@@ -67,16 +67,18 @@ public class Grid : MonoBehaviour {
 	// *****************************************************
 
 	private IEnumerator swapTiles (Tile tile1, Tile tile2) {
+		// escape if we dont have 2 tiles to swap
+		if (!tile1 || !tile2) yield break;
 
 		// play swapping sound
-		Audio.play("audio/fx/hit-arrow", 1.0f, 2.0f, false);
+		Audio.play("audio/fx/hit-arrow", 0.8f, Random.Range(1.5f, 2.5f), false);
 
 		// swap tiles
-		moveTile(tile1, tile2.transform.position);
-		moveTile(tile2, tile1.transform.position);
+		moveTile(tile1, tile2.transform.localPosition);
+		moveTile(tile2, tile1.transform.localPosition);
 
 		// wait for tiles to end moving
-		yield return new WaitForSeconds(0.3f);
+		yield return new WaitForSeconds(0.35f);
 
 		// resolve tile matches
 		resolveMatches();
@@ -87,9 +89,8 @@ public class Grid : MonoBehaviour {
 		setTileAtCoords(tile, pos);
 		tile.finalPos = pos;
 		tile.alive = true;
-		tile.spaces = 0;
-
 		tile.moving = true;
+		tile.spaces = 0;
 	}
 
 
@@ -120,12 +121,19 @@ public class Grid : MonoBehaviour {
 
 
 	private void resolveMatches () {
+		// disable user interaction
+		touchControls.enabled = false;
+
+		// get all matches in the board
 		List<Tile> matches = getAllMatches();
-		print (matches.Count);
 
 		if (matches.Count > 0) {
+			// if we found matches, resolve them
 			destroyMatches(matches);
 			spawnMatches(matches);
+		} else {
+			// if no more matches, re-enable user interaction
+			touchControls.enabled = true;
 		}
 	}
 
@@ -213,7 +221,7 @@ public class Grid : MonoBehaviour {
 	private void destroyMatches(List<Tile> matches) {
 
 		// play moving sound
-		Audio.play("audio/fx/magic-water", 0.2f, Random.Range(1.0f, 3.0f), false);
+		Audio.play("audio/fx/magic-water", 0.2f, Random.Range(1.5f, 3.0f), false);
 
 		// destroy matches
 		for (int i = 0; i < matches.Count; i++) {
@@ -262,7 +270,7 @@ public class Grid : MonoBehaviour {
 
 				if (!tile.alive) {
 					int xx = cols + c;
-					tile.transform.position = new Vector2(xx, -tile.y);
+					tile.transform.localPosition = new Vector2(xx, -tile.y);
 					c++;
 					spawns.Add(tile);
 				} else {
@@ -285,7 +293,7 @@ public class Grid : MonoBehaviour {
 
 				if (!tile.alive) {
 					int xx = - c - 1;
-					tile.transform.position = new Vector2(xx, -tile.y);
+					tile.transform.localPosition = new Vector2(xx, -tile.y);
 					c++;
 					spawns.Add(tile);
 				} else {
@@ -309,7 +317,7 @@ public class Grid : MonoBehaviour {
 
 				if (!tile.alive) {
 					int yy = rows + c;
-					tile.transform.position = new Vector2(tile.x, -yy);
+					tile.transform.localPosition = new Vector2(tile.x, -yy);
 					c++;
 					spawns.Add(tile);
 				} else {
@@ -333,7 +341,7 @@ public class Grid : MonoBehaviour {
 
 				if (!tile.alive) {
 					int yy = - c - 1;
-					tile.transform.position = new Vector2(tile.x, -yy);
+					tile.transform.localPosition = new Vector2(tile.x, -yy);
 					c++;
 					spawns.Add(tile);
 				} else {
@@ -356,28 +364,28 @@ public class Grid : MonoBehaviour {
 			tile.spaces = 0;
 
 			if (swipeDirection.x == 1) {
-				int startX = Mathf.Max((int)tile.transform.position.x + 1, 0);
+				int startX = Mathf.Max((int)tile.transform.localPosition.x + 1, 0);
 				for (var x = startX; x < cols; x++) {
 					if (!tiles[x, tile.y].alive) tile.spaces++;
 				}
 			}
 
 			if (swipeDirection.x == -1) {
-				int startX = Mathf.Min((int)tile.transform.position.x, cols - 1);
+				int startX = Mathf.Min((int)tile.transform.localPosition.x, cols - 1);
 				for (var x = startX; x >= 0; x--) {
 					if (!tiles[x, tile.y].alive) tile.spaces++;
 				}
 			}
 
 			if (swipeDirection.y == 1) {
-				int startY = Mathf.Max((int)-tile.transform.position.y + 1, 0);
+				int startY = Mathf.Max((int)-tile.transform.localPosition.y + 1, 0);
 				for (var y = startY; y < rows; y++) {
 					if (!tiles[tile.x, y].alive) tile.spaces++;
 				}
 			}
 
 			if (swipeDirection.y == -1) {
-				int startY = Mathf.Min((int)-tile.transform.position.y, rows - 1);
+				int startY = Mathf.Min((int)-tile.transform.localPosition.y, rows - 1);
 				for (var y = startY; y >= 0; y--) {
 					if (!tiles[tile.x, y].alive) tile.spaces++;
 				}
@@ -395,28 +403,28 @@ public class Grid : MonoBehaviour {
 			Tile tile = spawns[i];
 
 			if (swipeDirection.x == 1) {
-				float xx = tile.transform.position.x + tile.spaces;
+				float xx = tile.transform.localPosition.x + tile.spaces;
 				moveTile(tile, new Vector2(xx, -tile.y));
 			}
 
 			if (swipeDirection.x == -1) {
-				float xx = tile.transform.position.x - tile.spaces;
+				float xx = tile.transform.localPosition.x - tile.spaces;
 				moveTile(tile, new Vector2(xx, -tile.y));
 			}
 
 			if (swipeDirection.y == 1) {
-				float yy = -tile.transform.position.y + tile.spaces;
+				float yy = -tile.transform.localPosition.y + tile.spaces;
 				moveTile(tile, new Vector2(tile.x, -yy));
 			}
 
 			if (swipeDirection.y == -1) {
-				float yy = -tile.transform.position.y - tile.spaces;
+				float yy = -tile.transform.localPosition.y - tile.spaces;
 				moveTile(tile, new Vector2(tile.x, -yy));
 			}
 		}
 
 		// TODO: figure out the exact moment when the last tile arrives to position
-		yield return new WaitForSeconds(0.6f);
+		yield return new WaitForSeconds(0.35f);
 
 		// again, resolve tile matches
 		resolveMatches();
@@ -424,20 +432,26 @@ public class Grid : MonoBehaviour {
 
 
 	// *****************************************************
-	// Get Tiles
+	// Grid and Tile operations
 	// *****************************************************
 
-	private Vector2 getCoords(Vector2 pos) {
+	private Vector2 getPixelPosInGrid (Vector2 pos) {
 		// get position relative to upper left corner of the screen
 		pos.y = Mathf.Abs(pos.y - Screen.height);
 
 		// get position relative to grid
 		pos = new Vector2(
-			pos.x - Screen.width / 2 + cols / 2 * tileSize + tileSize / 2,
-			pos.y - Screen.height / 2 + rows / 2 * tileSize + tileSize / 2
+			pos.x - Screen.width / 2 + cols / 2 * tileSize + tileSize / 2 + transform.localPosition.x * tileSize,
+			pos.y - Screen.height / 2 + rows / 2 * tileSize + tileSize / 2 + transform.localPosition.y * tileSize
 		);
 
-		//print ("Pos: " + pos);
+		return pos;
+	}
+
+
+	private Vector2 getCoords(Vector2 pos) {
+		// get given position in grid
+		pos = getPixelPosInGrid(pos);
 
 		// get tile coords on position
 		int x = (int)(pos.x / tileSize);
@@ -453,6 +467,11 @@ public class Grid : MonoBehaviour {
 
 
 	private Tile getTileAtCoords(Vector2 coords) {
+		if (coords.x < 0 || coords.y < 0 || coords.x > cols - 1 || coords.y > rows - 1) {
+			print ("coords outside grid!");
+			return null;
+		}
+
 		return tiles[(int)coords.x, (int)coords.y];
 	}
 
@@ -471,7 +490,7 @@ public class Grid : MonoBehaviour {
 
 	private void initCamera () {
 		Vector2 d = new Vector2(cols / 2  == (int) cols / 2 ? 1 : 0.5f, rows / 2  == (int) rows / 2 ? 1 : 0.5f);
-		Camera.main.transform.position = new Vector3((cols - d.x) / 2, -(rows - d.y) / 2, -10);
+		Camera.main.transform.localPosition = new Vector3((cols - d.x) / 2, -(rows - d.y) / 2, -10);
 	}
 
 
@@ -492,8 +511,7 @@ public class Grid : MonoBehaviour {
 
 	public void onTouchPress (TouchEvent e) {
 		//print ("press " + e.activeTouch.endPos);
-		//getTileAtPos(e.activeTouch.endPos);
-		//if (swipeDirection != Vector2.zero) resolveMatches();
+		//print("PosInGrid; " + getPixelPosInGrid(e.activeTouch.endPos));
 	}
 
 

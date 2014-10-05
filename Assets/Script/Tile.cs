@@ -9,7 +9,7 @@ public class Tile : MonoBehaviour {
 
 	public Vector2 finalPos;
 
-	private float speed = 10.0f;
+	private float speed = 16.0f;
 	public bool moving = false;
 
 	public int type;
@@ -45,7 +45,7 @@ public class Tile : MonoBehaviour {
 		label.text = x + "," + y;
 
 		// set props
-		finalPos = transform.position;
+		finalPos = transform.localPosition;
 	}
 
 
@@ -59,14 +59,12 @@ public class Tile : MonoBehaviour {
 		// update position
 		if (alive && moving) {
 			float step = speed * Time.deltaTime;
-			transform.position = Vector3.MoveTowards(transform.position, finalPos, step);
+			transform.localPosition = Vector3.MoveTowards(transform.localPosition, finalPos, step);
 			//transform.position = Vector3.Lerp(transform.position, finalPos, step);
 
-			if (transform.position.x == finalPos.x && transform.position.y == finalPos.y) {
-				print ("arrived");
+			if (transform.localPosition.x == finalPos.x && transform.localPosition.y == finalPos.y) {
 				moving = false;
-
-				Audio.play("audio/fx/bongo_acute6", 0.15f, Random.Range(1.0f, 3.0f), false);
+				Audio.play("audio/fx/bongo_acute6", 0.4f, Random.Range(2.0f, 3.0f), false);
 			}
 		}
 
