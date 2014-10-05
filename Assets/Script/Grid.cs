@@ -15,10 +15,15 @@ public class Grid : MonoBehaviour {
 	private int cols = 7;
 	private int tileSize = 42;
 
-	// tile data
+	// tile types
 	public Object[] tileTypes;
+	public Object[] monsterTypes;
+
+	// tile data
 	private Tile[,] tiles; // tiles.GetLength(0), tiles.GetLength(1)
 	private List<Tile> matches;
+
+	Player player;
 
 
 	// *****************************************************
@@ -34,24 +39,43 @@ public class Grid : MonoBehaviour {
 
 		// load sprites from the given resources folder to this object array
 		tileTypes = Resources.LoadAll("Tiles/Textures/Random", typeof(Sprite));
+		monsterTypes = Resources.LoadAll("Tiles/Textures/Monsters", typeof(Sprite));
 
 		// initialize tile array
 		tiles = new Tile[cols, rows];
 
 		for (int y = 0; y < rows; y++) {
-			for (int x = 0; x < cols; x++){
+			for (int x = 0; x < cols; x++) {
 				tiles[x, y] = createTile(Random.Range(0, tileTypes.Length), x, y);
 			}
 		}
+
+		// insert player
+		player = createPlayer(Random.Range(0, monsterTypes.Length), 0, 0);
 	}
 
 
 	private Tile createTile (int type, int x, int y) {
-		GameObject obj = (GameObject)Instantiate(Resources.Load("Tiles/Tile"), Vector3.zero, Quaternion.identity);
+		GameObject obj = (GameObject)Instantiate(Resources.Load("Tiles/Prefabs/Tile"), Vector3.zero, Quaternion.identity);
 		Tile tile = obj.GetComponent<Tile>();
 		tile.init(this, type, x, y);
 
 		return tile;
+	}
+
+
+	private Player createPlayer (int type, int x, int y) {
+		Destroy(tiles[x, y].gameObject);
+
+		GameObject obj = (GameObject)Instantiate(Resources.Load("Tiles/Prefabs/Player"), Vector3.zero, Quaternion.identity);
+		Player player = obj.GetComponent<Player>();
+		player.init(this, type, x, y);
+
+
+
+		setTileAtCoords(player, new Vector2(player.x, player.y));
+
+		return player;
 	}
 
 
@@ -64,14 +88,14 @@ public class Grid : MonoBehaviour {
 		if (!tile1 || !tile2) yield break;
 
 		// play swapping sound
-		Audio.play("audio/fx2/Swoosh3", 0.3f, Random.Range(2.0f, 3.0f), false);
+		Audio.play("audio/fx2/Swoosh3", 0.3f, Random.Range(2.0f, 2.5f), false);
 
 		// swap tiles
 		moveTile(tile1, tile2.transform.localPosition);
 		moveTile(tile2, tile1.transform.localPosition);
 
 		// wait for tiles to end moving
-		yield return new WaitForSeconds(0.35f);
+		yield return new WaitForSeconds(0.1f);
 
 		// resolve tile matches
 		StartCoroutine(resolveMatches());
@@ -102,7 +126,7 @@ public class Grid : MonoBehaviour {
 			// if we found matches, resolve them
 			destroyMatches(matches);
 
-			yield return new WaitForSeconds(0.2f);
+			yield return new WaitForSeconds(0.25f);
 
 			spawnMatches(matches);
 		} else {
@@ -157,7 +181,7 @@ public class Grid : MonoBehaviour {
 		for (int x = originTile.x; x < cols ; x++) {
 			Tile tile = getTileAtCoords(new Vector2(x, originTile.y));
 
-			if (tile.type == originTile.type) {
+			if (tile.baseType == originTile.baseType && tile.type == originTile.type) {
 				tileMatches.Add(tile);
 			} else {
 				break;
@@ -176,7 +200,7 @@ public class Grid : MonoBehaviour {
 		for (int y = originTile.y; y < rows; y++) {
 			Tile tile = getTileAtCoords(new Vector2(originTile.x, y));
 
-			if (tile.type == originTile.type) {
+			if (tile.baseType == originTile.baseType && tile.type == originTile.type) {
 				tileMatches.Add(tile);
 			} else {
 				break;

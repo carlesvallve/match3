@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Tile : MonoBehaviour {
 
-	private Grid grid;
+	protected Grid grid;
 	public SpriteRenderer image;
 	public TextMesh label;
 
@@ -15,27 +15,27 @@ public class Tile : MonoBehaviour {
 	public bool exploding = false;
 	public bool alive = true;
 
+	public string baseType;
 	public int type;
 	public int x;
 	public int y;
 	public int spaces = 0;
 
 
-	public void init (Grid grid, int type, int x, int y) {
+	public virtual void init (Grid grid, int type, int x, int y) {
 		// vars
 		this.grid = grid;
-		this.type = type;
 		this.x = x;
 		this.y = y;
 
 		// gameObject
-		name = "Tile_" + x + "_" + y;
+		this.baseType = "tile";
+		this.name = "Tile_" + x + "_" + y;
 		transform.parent = grid.transform;
 		transform.localPosition = new Vector2(x, -y);
 
 		// sprite
 		image = GetComponent<SpriteRenderer>();
-		image.sprite = (Sprite)grid.tileTypes[type];
 		image.sortingOrder = y + x;
 
 		// label
@@ -43,13 +43,17 @@ public class Tile : MonoBehaviour {
 		label.renderer.sortingLayerName = "Overlay";
 		label.renderer.sortingOrder = -9;
 		label.text = x + "," + y;
+		label.gameObject.SetActive(false);
+
+		// set type
+		setType(type);
 
 		// set props
 		finalPos = transform.localPosition;
 	}
 
 
-	public void setType (int type) {
+	public virtual void setType (int type) {
 		this.type = type;
 		image.sprite = (Sprite)grid.tileTypes[type];
 	}
@@ -92,7 +96,7 @@ public class Tile : MonoBehaviour {
 		}
 
 		// update label
-		label.text = "" + type;
+		//label.text = "" + type;
 		//label.text = "" + spaces;
 		//label.text = "" + x + "," + y;
 	}
