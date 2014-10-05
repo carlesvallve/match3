@@ -1,0 +1,686 @@
+fileFormatVersion: 2
+guid: d539b182d2dc74f838d7a03db774583f
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: rounded_square_spectrum_pastels_0
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 1039
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_1
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 1039
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_2
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 1039
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_3
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 1039
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_4
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 1039
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_5
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1039
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_6
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 1039
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_7
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 1039
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_8
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 892
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_9
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 892
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_10
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 892
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_11
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 892
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_12
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 892
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_13
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 892
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_14
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 892
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_15
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 892
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_16
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 745
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_17
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 745
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_18
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 745
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_19
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 745
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_20
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 745
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_21
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 745
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_22
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 745
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_23
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 745
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_24
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 598
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_25
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 598
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_26
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 598
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_27
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 598
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_28
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 598
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_29
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 598
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_30
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 598
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_31
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 598
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_32
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 451
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_33
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 451
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_34
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 451
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_35
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 451
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_36
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 451
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_37
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 451
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_38
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 451
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_39
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 451
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_40
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 304
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_41
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 304
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_42
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 304
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_43
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 304
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_44
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 304
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_45
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 304
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_46
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 304
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_47
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 304
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_48
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 157
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_49
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 157
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_50
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 157
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_51
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 157
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_52
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 157
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_53
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 157
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_54
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 157
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_55
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 157
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_56
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 10
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_57
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 10
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_58
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 10
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_59
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 10
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_60
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 10
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_61
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 10
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_62
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 10
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rounded_square_spectrum_pastels_63
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 10
+        width: 145
+        height: 145
+      alignment: 1
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
