@@ -12,11 +12,11 @@ public class Grid : MonoBehaviour {
 	// editable from the unity editor
 	public int rows = 9;
 	public int cols = 7;
-	public int tileSize = 32;
+	public int tileSize = 42;
 
 	// grid data
 	public Object[] tileTypes;
-	public Tile[,] tiles;
+	public Tile[,] tiles; // tiles.GetLength(0), tiles.GetLength(1)
 
 
 	List<Tile> matches;
@@ -40,7 +40,7 @@ public class Grid : MonoBehaviour {
 		tileTypes = Resources.LoadAll("Tiles/Textures/Random", typeof(Sprite));
 
 		// initialize tile array
-		tiles = new Tile[cols, rows]; //print(tiles.Length + " " + tiles.GetLength(0) + " " + tiles.GetLength(1));
+		tiles = new Tile[cols, rows];
 
 		for (int y = 0; y < rows; y++) {
 			for (int x = 0; x < cols; x++){
