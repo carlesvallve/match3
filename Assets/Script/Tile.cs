@@ -10,7 +10,7 @@ public class Tile : MonoBehaviour {
 	public Vector2 finalPos;
 
 	private float speed = 10.0f;
-	private bool moving = false;
+	public bool moving = false;
 
 	public int type;
 	public int x;
@@ -57,10 +57,17 @@ public class Tile : MonoBehaviour {
 
 	void Update () {
 		// update position
-		if (alive) {
+		if (alive && moving) {
 			float step = speed * Time.deltaTime;
 			transform.position = Vector3.MoveTowards(transform.position, finalPos, step);
 			//transform.position = Vector3.Lerp(transform.position, finalPos, step);
+
+			if (transform.position.x == finalPos.x && transform.position.y == finalPos.y) {
+				print ("arrived");
+				moving = false;
+
+				Audio.play("audio/fx/bongo_acute6", 0.15f, Random.Range(1.0f, 3.0f), false);
+			}
 		}
 
 		// update label

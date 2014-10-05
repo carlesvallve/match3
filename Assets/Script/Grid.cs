@@ -67,6 +67,10 @@ public class Grid : MonoBehaviour {
 	// *****************************************************
 
 	private IEnumerator swapTiles (Tile tile1, Tile tile2) {
+
+		// play swapping sound
+		Audio.play("audio/fx/hit-arrow", 1.0f, 2.0f, false);
+
 		// swap tiles
 		moveTile(tile1, tile2.transform.position);
 		moveTile(tile2, tile1.transform.position);
@@ -84,6 +88,8 @@ public class Grid : MonoBehaviour {
 		tile.finalPos = pos;
 		tile.alive = true;
 		tile.spaces = 0;
+
+		tile.moving = true;
 	}
 
 
@@ -205,6 +211,10 @@ public class Grid : MonoBehaviour {
 	// *****************************************************
 
 	private void destroyMatches(List<Tile> matches) {
+
+		// play moving sound
+		Audio.play("audio/fx/magic-water", 0.2f, Random.Range(1.0f, 3.0f), false);
+
 		// destroy matches
 		for (int i = 0; i < matches.Count; i++) {
 			Tile tile = matches[i];
@@ -405,6 +415,7 @@ public class Grid : MonoBehaviour {
 			}
 		}
 
+		// TODO: figure out the exact moment when the last tile arrives to position
 		yield return new WaitForSeconds(0.6f);
 
 		// again, resolve tile matches
