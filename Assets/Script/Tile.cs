@@ -46,9 +46,6 @@ public class Tile : MonoBehaviour {
 
 		// set props
 		finalPos = transform.position;
-
-		//Bounds bounds = image.bounds;
-		//print (name + " " + bounds);
 	}
 
 
@@ -69,7 +66,6 @@ public class Tile : MonoBehaviour {
 		// update label
 		label.text = "" + type;
 		//label.text = "" + transform.position.x + "," + transform.position.y + "\n" + x + "," + y;
-		//label.text = "" + type + " (" + \n + ")";
 		//label.text = "" + spaces; //type + " (" + x + "," + y + ")";
 	}
 }

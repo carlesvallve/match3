@@ -229,9 +229,6 @@ public class Grid : MonoBehaviour {
 	// *****************************************************
 
 	private void spawnMatches (List<Tile> matches) {
-		// paint matches red and set flag to not alive
-		//destroyMatches(matches);
-
 		// spawn matches in the given swipe direction
 		List<Tile> spawns = new List<Tile>();
 
@@ -239,9 +236,6 @@ public class Grid : MonoBehaviour {
 		if (swipeDirection.x == 1) spawns = spawnTilesLeft();
 		if (swipeDirection.y == -1) spawns = spawnTilesBottom();
 		if (swipeDirection.y == 1) spawns = spawnTilesTop();
-
-		// paint spawn tiles (tiles that must move)
-		//paintTiles(spawns, Color.red);
 
 		// move spawned tiles to new positions in board
 		StartCoroutine(moveSpawns(spawns));
@@ -488,8 +482,7 @@ public class Grid : MonoBehaviour {
 	public void onTouchPress (TouchEvent e) {
 		//print ("press " + e.activeTouch.endPos);
 		//getTileAtPos(e.activeTouch.endPos);
-
-		if (swipeDirection != Vector2.zero) resolveMatches();
+		//if (swipeDirection != Vector2.zero) resolveMatches();
 	}
 
 
@@ -514,7 +507,6 @@ public class Grid : MonoBehaviour {
 			delta.x = 0;
 		}
 		delta = new Vector2(Mathf.Round(delta.x), -Mathf.Round(delta.y));
-		//print("delta " + delta);
 
 		// get tile 1
 		Vector2 coords1 = getCoords(e.activeTouch.startPos);
