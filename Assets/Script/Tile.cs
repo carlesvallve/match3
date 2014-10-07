@@ -22,7 +22,7 @@ public class Tile : MonoBehaviour {
 	public int spaces = 0;
 
 
-	public virtual void init (Grid grid, int type, int x, int y) {
+	public virtual void init (Grid grid, int type, int x, int y, Vector2 pos) {
 		// vars
 		this.grid = grid;
 		this.x = x;
@@ -32,7 +32,7 @@ public class Tile : MonoBehaviour {
 		baseType = "Tile";
 		name = baseType + x + "_" + y;
 		transform.parent = grid.transform;
-		transform.localPosition = new Vector2(x, -y);
+		transform.localPosition = pos; //new Vector2(x, -y);
 
 		// sprite
 		image = GetComponent<SpriteRenderer>();

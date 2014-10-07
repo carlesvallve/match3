@@ -11,8 +11,8 @@ public class Grid : MonoBehaviour {
 	private Vector2 swipeDirection;
 
 	// editable from the unity editor
-	private int rows = 9;
-	private int cols = 7;
+	private int rows = 7;
+	private int cols = 9;
 	private int tileSize = 42;
 
 	// tile types
@@ -44,37 +44,42 @@ public class Grid : MonoBehaviour {
 		// initialize tile array
 		tiles = new Tile[cols, rows];
 
-		for (int y = 0; y < rows; y++) {
-			for (int x = 0; x < cols; x++) {
-				tiles[x, y] = createTile(Random.Range(0, tileTypes.Length), x, y);
+		int x;
+		int y;
+
+		for (y = 0; y < rows; y++) {
+			for (x = 0; x < cols; x++) {
+				tiles[x, y] = createTile(Random.Range(0, tileTypes.Length), x, y, new Vector2(x, -y));
 			}
 		}
 
 		// insert player
-		player = createPlayer(Random.Range(0, monsterTypes.Length), Random.Range(0, cols - 1), Random.Range(0, rows - 1));
+		/*x = Random.Range(0, cols - 1);
+		y = Random.Range(0, rows - 1);
+		player = createPlayer(Random.Range(0, monsterTypes.Length), x, y, new Vector2(x, -y));*/
 	}
 
 
-	private Tile createTile (int type, int x, int y) {
+	private Tile createTile (int type, int x, int y, Vector2 pos) {
 		GameObject obj = (GameObject)Instantiate(Resources.Load("Tiles/Prefabs/Tile"), Vector3.zero, Quaternion.identity);
 		Tile tile = obj.GetComponent<Tile>();
-		tile.init(this, type, x, y);
-		setTileAtCoords(tile, new Vector2(x, y));
+		tile.init(this, type, x, y, pos);
+		//setTileAtCoords(tile, new Vector2(x, y));
 
 		return tile;
 	}
 
 
-	private Player createPlayer (int type, int x, int y) {
+	/*private Player createPlayer (int type, int x, int y, Vector2 pos) {
 		Destroy(tiles[x, y].gameObject);
 
 		GameObject obj = (GameObject)Instantiate(Resources.Load("Tiles/Prefabs/Player"), Vector3.zero, Quaternion.identity);
 		Player player = obj.GetComponent<Player>();
-		player.init(this, type, x, y);
-		setTileAtCoords(player, new Vector2(x, y));
+		player.init(this, type, x, y, pos);
+		//setTileAtCoords(player, new Vector2(x, y));
 
 		return player;
-	}
+	}*/
 
 
 	// *****************************************************
@@ -231,6 +236,18 @@ public class Grid : MonoBehaviour {
 	// Spawn Tiles
 	// *****************************************************
 
+	private Tile spawnTile (Tile tile, Vector2 pos) {
+		// destroy previous tile
+		Destroy(tile);
+		Destroy(tile.gameObject);
+
+		// create new tile at position
+		tile = createTile(Random.Range(0, tileTypes.Length), tile.x, tile.y, pos);
+
+		return tile;
+	}
+
+
 	private void spawnMatches (List<Tile> matches) {
 		// spawn matches in the given swipe direction
 		List<Tile> spawns = new List<Tile>();
@@ -254,10 +271,8 @@ public class Grid : MonoBehaviour {
 				Tile tile = getTileAtCoords(new Vector2(x, y));
 
 				if (!tile.alive) {
-					int xx = cols + c;
-					tile.spawn(new Vector2(xx, -tile.y));
+					spawns.Add(spawnTile(tile, new Vector2(cols + c, -tile.y)));
 					c++;
-					spawns.Add(tile);
 				} else {
 					if (c > 0) spawns.Add(tile);
 				}
@@ -277,10 +292,8 @@ public class Grid : MonoBehaviour {
 				Tile tile = getTileAtCoords(new Vector2(x, y));
 
 				if (!tile.alive) {
-					int xx = - c - 1;
-					tile.spawn(new Vector2(xx, -tile.y));
+					spawns.Add(spawnTile(tile, new Vector2(-c - 1, -tile.y)));
 					c++;
-					spawns.Add(tile);
 				} else {
 					if (c > 0) spawns.Add(tile);
 				}
@@ -301,10 +314,8 @@ public class Grid : MonoBehaviour {
 				Tile tile = getTileAtCoords(new Vector2(x, y));
 
 				if (!tile.alive) {
-					int yy = rows + c;
-					tile.spawn(new Vector2(tile.x, -yy));
+					spawns.Add(spawnTile(tile, new Vector2(tile.x, -rows - c)));
 					c++;
-					spawns.Add(tile);
 				} else {
 					if (c > 0) spawns.Add(tile);
 				}
@@ -325,10 +336,8 @@ public class Grid : MonoBehaviour {
 				Tile tile = getTileAtCoords(new Vector2(x, y));
 
 				if (!tile.alive) {
-					int yy = - c - 1;
-					tile.spawn(new Vector2(tile.x, -yy));
+					spawns.Add(spawnTile(tile, new Vector2(tile.x, c + 1)));
 					c++;
-					spawns.Add(tile);
 				} else {
 					if (c > 0) spawns.Add(tile);
 				}
@@ -346,6 +355,7 @@ public class Grid : MonoBehaviour {
 	private void getSpawnSpaces (List<Tile> spawns) {
 		for (int i = 0; i < spawns.Count; i++) {
 			Tile tile = spawns[i];
+
 			tile.spaces = 0;
 
 			if (swipeDirection.x == 1) {

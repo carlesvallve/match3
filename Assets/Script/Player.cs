@@ -4,8 +4,8 @@ using System.Collections;
 public class Player : Tile {
 
 
-	public override void init (Grid grid, int type, int x, int y) {
-		base.init(grid, type, x, y);
+	public override void init (Grid grid, int type, int x, int y, Vector2 pos) {
+		base.init(grid, type, x, y, pos);
 
 		baseType = "Player";
 		gameObject.name = "Player_" + x + "_" + y;
