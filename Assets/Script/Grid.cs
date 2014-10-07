@@ -18,12 +18,14 @@ public class Grid : MonoBehaviour {
 	// tile types
 	public Object[] tileTypes;
 	public Object[] monsterTypes;
+	public Object[] playerTypes;
 
 	// tile data
 	private Tile[,] tiles; // tiles.GetLength(0), tiles.GetLength(1)
 	private List<Tile> matches;
 
-	Player player;
+	private List<Monster> monsters;
+	private Player player;
 
 
 	// *****************************************************
@@ -40,20 +42,24 @@ public class Grid : MonoBehaviour {
 		// load sprites from the given resources folder to this object array
 		tileTypes = Resources.LoadAll("Tiles/Textures/Random", typeof(Sprite));
 		monsterTypes = Resources.LoadAll("Tiles/Textures/Monsters", typeof(Sprite));
+		playerTypes = Resources.LoadAll("Tiles/Textures/Players", typeof(Sprite));
 
-		// initialize tile array
+		// create tiles
 		tiles = new Tile[cols, rows];
 
-		int x;
-		int y;
-
-		for (y = 0; y < rows; y++) {
-			for (x = 0; x < cols; x++) {
+		for (int y = 0; y < rows; y++) {
+			for (int x = 0; x < cols; x++) {
 				tiles[x, y] = createTile(Random.Range(0, tileTypes.Length), x, y, new Vector2(x, -y));
 			}
 		}
 
-		// insert player
+		// create monsters
+		/*List<Monster> monsters = new List<Monster>();
+		for (int i = 0; i < 4; i++) {
+			monsters.Add(createMonster(Random.Range(0, monsterTypes.Length), Random.Range(0, cols - 1), Random.Range(0, rows - 1)));
+		}*/
+
+		// create player
 		/*x = Random.Range(0, cols - 1);
 		y = Random.Range(0, rows - 1);
 		player = createPlayer(Random.Range(0, monsterTypes.Length), x, y, new Vector2(x, -y));*/
@@ -82,6 +88,18 @@ public class Grid : MonoBehaviour {
 	}*/
 
 
+	/*private Monster createMonster (int type, int x, int y) {
+		Destroy(tiles[x, y].gameObject);
+
+		GameObject obj = (GameObject)Instantiate(Resources.Load("Tiles/Prefabs/Monster"), Vector3.zero, Quaternion.identity);
+		Monster monster = obj.GetComponent<Monster>();
+		monster.init(this, type, x, y);
+		setTileAtCoords(monster, new Vector2(x, y));
+
+		return monster;
+	}*/
+
+
 	// *****************************************************
 	// Swap Tiles
 	// *****************************************************
@@ -105,12 +123,24 @@ public class Grid : MonoBehaviour {
 	}
 
 
-	private void moveTile(Tile tile, Vector2 pos) {
+	private void moveTile (Tile tile, Vector2 pos) {
 		setTileAtPos(tile, pos);
 		tile.finalPos = pos;
 		tile.alive = true;
 		tile.moving = true;
 		tile.spaces = 0;
+	}
+
+
+	private Tile spawnTile (Tile tile, Vector2 pos) {
+		// destroy previous tile
+		Destroy(tile);
+		Destroy(tile.gameObject);
+
+		// create new tile at position
+		tile = createTile(Random.Range(0, tileTypes.Length), tile.x, tile.y, pos);
+
+		return tile;
 	}
 
 
@@ -127,7 +157,7 @@ public class Grid : MonoBehaviour {
 
 		if (matches.Count > 0) {
 			// if we found matches, resolve them
-			destroyMatches(matches);
+			explodeMatches(matches);
 
 			yield return new WaitForSeconds(0.25f);
 
@@ -135,6 +165,18 @@ public class Grid : MonoBehaviour {
 		} else {
 			// if no more matches, re-enable user interaction
 			touchControls.enabled = true;
+		}
+	}
+
+
+	private void explodeMatches(List<Tile> matches) {
+		//Audio.play("audio/fx/hit-stub", 0.8f, Random.Range(0.5f, 1.5f), false);
+		Audio.play("audio/fx2/Punch", 0.8f, Random.Range(0.5f, 1.5f), false);
+
+		// destroy matches
+		for (int i = 0; i < matches.Count; i++) {
+			Tile tile = matches[i];
+			tile.explode();
 		}
 	}
 
@@ -216,37 +258,8 @@ public class Grid : MonoBehaviour {
 
 
 	// *****************************************************
-	// Destroy Matches
-	// *****************************************************
-
-	private void destroyMatches(List<Tile> matches) {
-
-		//Audio.play("audio/fx/hit-stub", 0.8f, Random.Range(0.5f, 1.5f), false);
-		Audio.play("audio/fx2/Punch", 0.8f, Random.Range(0.5f, 1.5f), false);
-
-		// destroy matches
-		for (int i = 0; i < matches.Count; i++) {
-			Tile tile = matches[i];
-			tile.explode();
-		}
-	}
-
-
-	// *****************************************************
 	// Spawn Tiles
 	// *****************************************************
-
-	private Tile spawnTile (Tile tile, Vector2 pos) {
-		// destroy previous tile
-		Destroy(tile);
-		Destroy(tile.gameObject);
-
-		// create new tile at position
-		tile = createTile(Random.Range(0, tileTypes.Length), tile.x, tile.y, pos);
-
-		return tile;
-	}
-
 
 	private void spawnMatches (List<Tile> matches) {
 		// spawn matches in the given swipe direction
@@ -258,7 +271,7 @@ public class Grid : MonoBehaviour {
 		if (swipeDirection.y == 1) spawns = spawnTilesTop();
 
 		// move spawned tiles to new positions in board
-		StartCoroutine(moveSpawns(spawns));
+		StartCoroutine(moveTiles(spawns));
 	}
 
 
@@ -349,10 +362,47 @@ public class Grid : MonoBehaviour {
 
 
 	// *****************************************************
-	// Move Spawned Tiles
+	// Move Tiles
 	// *****************************************************
 
-	private void getSpawnSpaces (List<Tile> spawns) {
+	private IEnumerator moveTiles (List<Tile> spawns) {
+		// get empty spaces for each tile to spawn
+		getTileSpaces(spawns);
+
+		// move tiles
+		for (int i = 0; i < spawns.Count; i++) {
+			Tile tile = spawns[i];
+
+			if (swipeDirection.x == 1) {
+				float xx = tile.transform.localPosition.x + tile.spaces;
+				moveTile(tile, new Vector2(xx, -tile.y));
+			}
+
+			if (swipeDirection.x == -1) {
+				float xx = tile.transform.localPosition.x - tile.spaces;
+				moveTile(tile, new Vector2(xx, -tile.y));
+			}
+
+			if (swipeDirection.y == 1) {
+				float yy = -tile.transform.localPosition.y + tile.spaces;
+				moveTile(tile, new Vector2(tile.x, -yy));
+			}
+
+			if (swipeDirection.y == -1) {
+				float yy = -tile.transform.localPosition.y - tile.spaces;
+				moveTile(tile, new Vector2(tile.x, -yy));
+			}
+		}
+
+		// TODO: figure out the exact moment when the last tile arrives to position
+		yield return new WaitForSeconds(0.35f);
+
+		// again, resolve tile matches
+		StartCoroutine(resolveMatches());
+	}
+
+
+	private void getTileSpaces (List<Tile> spawns) {
 		for (int i = 0; i < spawns.Count; i++) {
 			Tile tile = spawns[i];
 
@@ -386,43 +436,6 @@ public class Grid : MonoBehaviour {
 				}
 			}
 		}
-	}
-
-
-	private IEnumerator moveSpawns (List<Tile> spawns) {
-		// get empty spaces for each tile to spawn
-		getSpawnSpaces(spawns);
-
-		// move tiles
-		for (int i = 0; i < spawns.Count; i++) {
-			Tile tile = spawns[i];
-
-			if (swipeDirection.x == 1) {
-				float xx = tile.transform.localPosition.x + tile.spaces;
-				moveTile(tile, new Vector2(xx, -tile.y));
-			}
-
-			if (swipeDirection.x == -1) {
-				float xx = tile.transform.localPosition.x - tile.spaces;
-				moveTile(tile, new Vector2(xx, -tile.y));
-			}
-
-			if (swipeDirection.y == 1) {
-				float yy = -tile.transform.localPosition.y + tile.spaces;
-				moveTile(tile, new Vector2(tile.x, -yy));
-			}
-
-			if (swipeDirection.y == -1) {
-				float yy = -tile.transform.localPosition.y - tile.spaces;
-				moveTile(tile, new Vector2(tile.x, -yy));
-			}
-		}
-
-		// TODO: figure out the exact moment when the last tile arrives to position
-		yield return new WaitForSeconds(0.35f);
-
-		// again, resolve tile matches
-		StartCoroutine(resolveMatches());
 	}
 
 

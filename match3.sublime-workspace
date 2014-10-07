@@ -1,0 +1,583 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"powerRa",
+				"powerRaritySum"
+			],
+			[
+				"a",
+				"activeTouch"
+			],
+			[
+				"T",
+				"TouchData"
+			],
+			[
+				"new",
+				"newStateButton"
+			],
+			[
+				"color",
+				"colorDisabled"
+			],
+			[
+				"coo",
+				"cooldownSeconds"
+			],
+			[
+				"destroy",
+				"destroyPowerButton"
+			],
+			[
+				"is",
+				"isTextureReadable"
+			],
+			[
+				"Si",
+				"SimpleButton"
+			],
+			[
+				"currentS",
+				"currentStateButton"
+			],
+			[
+				"sor",
+				"sortedLayers"
+			],
+			[
+				"quit",
+				"quitMatch"
+			],
+			[
+				"audio",
+				"audioPress"
+			],
+			[
+				"active",
+				"activeTouch"
+			],
+			[
+				"options",
+				"optionsLayer"
+			],
+			[
+				"Touch",
+				"TouchControls"
+			],
+			[
+				"onTouch",
+				"onTouchRelease"
+			],
+			[
+				"acti",
+				"activeTouchId"
+			],
+			[
+				"getRandom",
+				"getRandomPowerType"
+			],
+			[
+				"fina",
+				"finalPosition"
+			],
+			[
+				"getNear",
+				"getNearestTeamPlayerToPos"
+			],
+			[
+				"Parti",
+				"ParticleRing"
+			],
+			[
+				"GetCo",
+				"GetComponent	type"
+			],
+			[
+				"getNea",
+				"getNearestTeamPlayerToPos"
+			],
+			[
+				"Powe",
+				"PowerButton"
+			],
+			[
+				"Particl",
+				"ParticleSystem"
+			],
+			[
+				"show",
+				"showSelectorAfterDelay"
+			],
+			[
+				"Stra",
+				"StartCoroutine"
+			],
+			[
+				"G",
+				"GUIText"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Assets/Script/Grid.cs",
+			"settings":
+			{
+				"buffer_size": 13664,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/powers/PowerTackle.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/powers/PowerDribbling.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/powers/PowerBlast.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/powers/PowerCross.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/powers/PowerStamina.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Shadow.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Power.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/intro/Intro.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/PlayerData/PlayerData.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/hud/StatsTable.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/hud/Statistics.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Player.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Team.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Ball.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/hud/SimpleButton.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/howtoplay/HowToPlay.cs",
+		"/Users/vallvecarles/Sources/strikerarena/.gitignore",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/hud/Options.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/hud/Hud.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/result/Result.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/result/RS_controller.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/ai/Behaviours/Abstracts/AbstractAttacker.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/ai/Behaviours/Abstracts/AbstractPowerUser.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/ai/Behaviours/PowerUsers/InsanePowerUser.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/ai/Behaviours/Attackers/InsaneAttacker.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/ai/Behaviours/WatcherBehaviour.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/ai/Behaviours/Attackers/EasyAttacker.cs",
+		"/Users/vallvecarles/Sources/strikerarena/strikerarena.sublime-project",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/controls/TouchControls.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/hud/PowerButton.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/hud/StateButton.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/powers/PowerWall.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/hud/Ui.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/powers/PowerShoot.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/powers/PowerPunch.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/powers/PowerHeal.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/controls/TouchEvent.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/controls/TouchLayer.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/controls/TouchData.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/audio/Audio.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/hud/DefenseButton.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/hud/OptionsButton.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/util/EventManager.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/teams/Tribe.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Grid.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/camera/CameraOrbit.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/util/ScrollingTextureAlpha.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/util/ParticleRing.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/util/AlphaVertices.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/utils.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Geometrical.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/network/NetworkController.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/ui/test_UI.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/new/RS_test.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/RS_camera_controller.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/playerAnim_controller.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/game/emperor/Script/Emperor_rs.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/Blood_explode_animevent.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/anim_death.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/anim_live.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/Explode_Fx_animevent.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/lightPart.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/RS_character_controller.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/Rs_icon_controller.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/RS_thumbdown_controller.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script/RS_thumbup_controller.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/camera/CameraFade.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/utils/FramesPerSecond.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Plugins/Script/game/Shadow.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/controls/TouchControls.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Plugins/Script/camera/CameraOrbit.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Player.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Plugins/utils/camera/CameraOrbit.cs",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Grid.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/intro/camControler.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/intro/doorControler.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/CameraOrbit.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Team.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Ball.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/hud/Hud.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/util/FramesPerSecond.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/controls/TouchData.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Weapon.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/controls/TouchControls2.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/CameraOrbit.js.meta",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Turns.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/audio/Audio.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Power.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Powers.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Timer.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/TouchTest/Script/TapJS_Breaker.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/TurnBased.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Controls.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/ObjectLabel.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/JoystickCustom.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/intro/guiControler.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/intro/CameraIntro.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/intro/Intro.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/Control.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game/PlayerAnimation.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/Script/menu/Menu.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/UI_maintitle/Script/Intro.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/UI_maintitle/Script/Door.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/UI_maintitle/Script/IntroController.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/UI_maintitle/Script/DoorController.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/UI_maintitle/Script/GUIControler.js",
+		"/Users/vallvecarles/Sources/strikerarena/Assets/UI_maintitle/Script/doorControler.js",
+		"/Users/vallvecarles/Desktop/unity tests/GridBasic3_ok/Assets/ScriptsOld/Sun.js",
+		"/Users/vallvecarles/Desktop/index.js",
+		"/Users/vallvecarles/Desktop/tilese-example.json",
+		"/Users/vallvecarles/Desktop/window.m",
+		"/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+		"/Volumes/cv/kanjihero/www/components/Dungeon/index.js",
+		"/Volumes/cv/kanjihero/www/components/Dungeon/Tile/index.js"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Script",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Script",
+			"/Users/vallvecarles/Sources/strikerarena/Assets",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/result/Script",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Script",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Script/intro",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Script",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Script",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Resources/game",
+			"/Users/vallvecarles/Sources/strikerarena/Assets/Script/game",
+			"",
+			"kanihero/www",
+			"www",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"TouchEvent",
+			"press",
+			"onTouchMove",
+			"onGameTurn",
+			"delegate",
+			"propagation",
+			"forbid",
+			"background",
+			"reset (",
+			"kickOff",
+			"// TODO",
+			"// TO",
+			"endPlayerFormationPosition",
+			"sudden",
+			"print",
+			"powerRariry",
+			"rari",
+			"raritySum",
+			"rari",
+			"powerTypes",
+			"rari",
+			"rariti",
+			"suddenDe",
+			".Add",
+			"suddenDeath",
+			"removePowerTypeFromField",
+			"remove power",
+			"Sudden",
+			"// destroy remaining field abilities",
+			"Sudden",
+			".Add",
+			"sudden",
+			"sudden]",
+			"sudden",
+			"endPlayerFormationPosition",
+			"alivePla",
+			"resetFormation",
+			"isPlayable",
+			"is",
+			"isMatchTimerOn",
+			"matchTime",
+			"matchIsOver",
+			"matchEnd (",
+			"startSudd",
+			".Add",
+			"playAnimSound",
+			"GAME_",
+			"SMALL",
+			"initAnimations",
+			".Add",
+			"spawn",
+			"fall (",
+			"reduceSleepTime",
+			"yield break",
+			"fall (",
+			"editor",
+			".Add",
+			"update team",
+			">>>",
+			".Add",
+			".score",
+			"update team",
+			"spawn",
+			"shadow",
+			"spawn",
+			"power",
+			"lineRenderer",
+			"result/",
+			"checkForGoal",
+			"touchControls",
+			"statistics",
+			"ags",
+			"statistics",
+			"ags",
+			"displayMatchTime",
+			"agressions",
+			"Slerp",
+			"update team",
+			"onGameTurn",
+			"updateGameTurns",
+			"usePower",
+			"Abilit",
+			"statistics",
+			"pixelInset",
+			"pizelInset",
+			"statistics",
+			"quitMatch",
+			"ball.reset",
+			"print",
+			"ball.reset",
+			"ball.reset(",
+			"mvp",
+			"updateFormation",
+			"celebrating",
+			"buttonQuit",
+			"quitMatch",
+			"cameraFade",
+			"playAnimSound",
+			"Audio",
+			".y",
+			"animator",
+			"resetForm",
+			">>>",
+			"playerFormationPosition",
+			"moveEnd",
+			"celebrate",
+			"moveEnd",
+			"resetFormation",
+			".formation",
+			"formation",
+			"utils",
+			"doorClose",
+			"initialized",
+			"animGui",
+			"print",
+			"spawn",
+			"executeMove",
+			"getNearestTeam",
+			">= 5",
+			"activeTouch",
+			"isEnabled",
+			"print",
+			"touchSwipe",
+			"onMove",
+			"touch",
+			"onTouchPress",
+			"checkUsability",
+			"propafation"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"powerRaritySum",
+			"string",
+			"Vector3.Distance",
+			"\"",
+			"string\"",
+			"string",
+			"\"",
+			"bool",
+			"\"",
+			"this",
+			"pos",
+			"mesh",
+			"model",
+			"':"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Assets/Script/Grid.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13664,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "match3.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 311.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

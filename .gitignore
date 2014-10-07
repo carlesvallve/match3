@@ -34,6 +34,6 @@ obj/
 # ====================== #
 # Sublime Text generated #
 # ====================== #
-*.sublime-project
-*.sublime-workspace
+# *.sublime-project
+# *.sublime-workspace
 
